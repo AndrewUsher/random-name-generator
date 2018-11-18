@@ -1,36 +1,30 @@
 // Initial variables
-const url = 'https://randomuser.me/api/?results=16';
-const list = document.getElementById('users');
+const url = 'https://randomuser.me/api/?results=32'
+const list = document.getElementById('users')
 
-// Helper functions
-
-// Create element that is passed into parameters
-function createElement (element) {
-  return document.createElement(element);
+// Create element(s) that is passed into parameters
+const createElement = (...elements) => {
+  const createdElements = []
+  elements.map(element => createdElements.push(document.createElement(element)))
+  return createdElements
 }
 
 // Append second parameter to the first one
-function append (parent, element) {
-  return parent.appendChild(element);
-}
+const append = (parent, element) => parent.appendChild(element)
 
 fetch(url)
-  .then((response) => response.json())
-  .then(function (data) {
-    let users = data.results;
-    return users.map(function (user) {
-      let li = createElement('li');
-      let img = createElement('img');
-      let span = createElement('span');
-      
-      img.src = user.picture.medium;
-      span.textContent = `${user.name.first} ${user.name.last}`;
-      append(li, img);
-      append(li, span);
-      append(list, li);
+  .then(response => response.json())
+  .then(data => {
+    let users = data.results
+    return users.map(user => {
+      const [li, img, span] = createElement('li', 'img', 'span')
+      img.src = user.picture.medium
+      span.textContent = [user.name.first, user.name.last].join(' ')
+      append(li, img)
+      append(li, span)
+      append(list, li)
     })
   })
-
   .catch(function(error) {
-    // If there is any error you will catch them here
-  });   
+    console.error(error)
+  })
