@@ -1,0 +1,9 @@
+{
+  "name": "random-name-generator",
+  "version": "1.0.0",
+  "description": "Pulls names and pictures from API to display",
+  "main": "index.html",
+  "repository": "https://github.com/AndrewUsher/random-name-generator.git",
+  "author": "Andrew Usher <andrewusher00@gmail.com>",
+  "license": "MIT"
+}
