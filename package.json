@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d docs"
+    "build": "parcel build index.html -d docs --public-url ./random-user-generator/"
   },
   "devDependencies": {
     "stylus": "^0.54.5"
