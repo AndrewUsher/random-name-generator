@@ -8,5 +8,11 @@
   "license": "MIT",
   "dependencies": {
     "parcel-bundler": "^1.10.3"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5"
   }
 }
